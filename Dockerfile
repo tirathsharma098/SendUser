@@ -1,4 +1,4 @@
-FROM node:16.13.2
+FROM node:16.17.0
 
 EXPOSE 3000
 
@@ -14,4 +14,4 @@ COPY . .
 RUN npm i -g prisma
 RUN prisma db pull
 RUN prisma generate
-CMD  ["node", "dist/app.js"]
+CMD  node "dist/app.js"

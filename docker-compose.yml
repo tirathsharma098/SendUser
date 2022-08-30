@@ -17,13 +17,13 @@ services:
     image: "postgres:12"
     restart: "always"
     ports:
-      - "5432:5432"
+      - "5455:5432"
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=user1234
       - POSTGRES_DB=user_data_assign
     volumes:
-      - nps_data:/ver/lib/postgresql/data
+      - nps_data:/var/lib/postgresql/data
 
 volumes:
   nps_data: {}
