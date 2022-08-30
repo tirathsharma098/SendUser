@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  node_backend:
+    container_name: send_user
+    image: send_user:0.0.2
+    build:
+      context: .
+    ports: 
+      - "3000:3000"
+    environment:
+      - MAIN_PORT=3000
+    depends_on:
+      - postgres
+  postgres:
+    container_name: postgres
+    image: "postgres:12"
+    restart: "always"
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=user1234
+      - POSTGRES_DB=user_data_assign
+    volumes:
+      - nps_data:/ver/lib/postgresql/data
+
+volumes:
+  nps_data: {}
